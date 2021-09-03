@@ -7,7 +7,7 @@ const knex = require("../database");
 //------------------------------------------------------------------
 router.get("/", async (request, response) => {
   // -----Get meals that has a price smaller than maxPrice---
-  if (request.query.maxPrice) {
+  if (request.query.maxPrice && !request.query.limit) {
     const cheapMeals = await knex("meal").where(
       "price",
       "<",
@@ -41,7 +41,7 @@ router.get("/", async (request, response) => {
     return response.json(lastlyMeals);
   }
   //------Only specific number of meals---------------
-  if (request.query.limit) {
+  if (request.query.limit && !request.query.maxPrice) {
     const limitMeals = await knex("meal")
       .select("*")
       .limit(request.query.limit);
