@@ -25,8 +25,8 @@ router.get("/", async (request, response) => {
     const availableMeals = await knex("meal")
       .select("meal.id", "max_reservations", coalesceres)
       .leftJoin("reservation", "reservation.meal_id", "meal.id")
-      .groupBy("meal.id");
-    //.having("max_reservations", ">", "total_reservation");
+      .groupBy("meal.id")
+      .having("max_reservations", ">", "total_reservation");
     const result = Object.values(JSON.parse(JSON.stringify(availableMeals)));
 
     return response.json(result);
