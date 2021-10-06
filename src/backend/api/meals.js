@@ -19,7 +19,7 @@ router.get("/", async (request, response) => {
   const availableReservations = request.query.availableReservations;
   //console.log(availableReservations);
   if (availableReservations) {
-    var coalesceres = knex.raw(
+    const coalesceres = knex.raw(
       "coalesce(sum(reservation.number_of_guests), 0) as total_reservation"
     );
     const availableMeals = await knex("meal")
@@ -27,9 +27,7 @@ router.get("/", async (request, response) => {
       .leftJoin("reservation", "reservation.meal_id", "meal.id")
       .groupBy("meal.id")
       .having("max_reservations", ">", "total_reservation");
-    const result = Object.values(JSON.parse(JSON.stringify(availableMeals)));
-
-    return response.json(result);
+    return response.send(availableMeals);
   }
   //-----Get meals that has been created after the date------
   if (request.query.createdAfter) {
