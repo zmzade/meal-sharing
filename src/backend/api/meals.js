@@ -22,11 +22,19 @@ router.get("/", async (request, response) => {
     const coalesceres = knex.raw(
       "coalesce(sum(reservation.number_of_guests), 0) as total_reservation"
     );
-    const availableMeals = await knex("meal")
+    const totalreserveMeals = await knex("meal")
       .select("meal.id", "max_reservations", coalesceres)
       .leftJoin("reservation", "reservation.meal_id", "meal.id")
-      .groupBy("meal.id")
-      .having("max_reservations", ">", "total_reservation");
+      .groupBy("meal.id");
+    for (i = 0; i < totalreserveMeals.length; i++) {
+      totalreserveMeals[i].total_reservation = parseInt(
+        totalreserveMeals[i].total_reservation,
+        10
+      );
+    }
+    const availableMeals = totalreserveMeals.filter(
+      (x) => x.max_reservations > x.total_reservation
+    );
     return response.send(availableMeals);
   }
   //-----Get meals that has been created after the date------
