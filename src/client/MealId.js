@@ -1,6 +1,6 @@
 import React from "react";
 
 const MealId = (props) => {
-  return <div> id </div>;
+  return <div className="add-meal"> id </div>;
 };
 export default MealId;
