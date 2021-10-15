@@ -27,6 +27,7 @@ const MealsForm = () => {
     if (!price) {
       return alert("add price");
     }
+
     const newMeal = {
       title: title,
       description: description,
@@ -47,81 +48,75 @@ const MealsForm = () => {
   };
 
   return (
-    <div>
-      <div>
-        <form>
-          <h2>Add your own food </h2>
-          <div>
-            <label>Title</label>
-            <input
-              type="text"
-              placeholder="Add title .."
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>Description</label>
-            <input
-              type="text"
-              placeholder="Add description .."
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>Location</label>
-            <input
-              type="text"
-              placeholder="Add location .."
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>When</label>
-            <input
-              type="date"
-              placeholder="Add date .."
-              value={when}
-              onChange={(e) => setWhen(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>Max-reservation</label>
-            <input
-              type="number"
-              placeholder="Add max reservation .."
-              value={max_reservations}
-              onChange={(e) => setMax_reservations(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>Price</label>
-            <input
-              type="number"
-              placeholder="Add price .."
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>Created-date</label>
-            <input
-              type="date"
-              placeholder="Add date .."
-              value={created_date}
-              onChange={(e) => setCreated_date(e.target.value)}
-            />
-          </div>
-          <br />
-          <div>
-            <button onClick={handleAdd} type="submit">
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
+    <div className="form">
+      <form>
+        <h2>Share your own food </h2>
+        <div>
+          <label>Title</label>
+          <input
+            type="text"
+            placeholder="Add title .."
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Ingredients</label>
+          <input
+            type="text"
+            placeholder="Add description .."
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Where</label>
+          <input
+            type="text"
+            placeholder="Add location .."
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>When</label>
+          <input
+            type="date"
+            value={when}
+            onChange={(e) => setWhen(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Max-reservation</label>
+          <input
+            type="number"
+            value={max_reservations}
+            onChange={(e) => setMax_reservations(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Price</label>
+          <input
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Date</label>
+          <input
+            type="date"
+            value={created_date}
+            onChange={(e) => setCreated_date(e.target.value)}
+          />
+        </div>
+        <br />
+        <div className="warp">
+          <button onClick={handleAdd} type="submit">
+            Submit
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React from "react";
-const MealsChildren = (props) => {
-  const { children } = props;
+const MealsChildren = ({ children }) => {
   return <div className="children">{children}</div>;
 };
 export default MealsChildren;

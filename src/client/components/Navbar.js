@@ -1,4 +1,5 @@
 import React from "react";
+import { MdOutlineFoodBank } from "react-icons/md";
 import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
@@ -15,14 +16,18 @@ const Navbar = () => {
         <div>
           <ul>
             <li className="nav-item">
+              {/* <MdOutlineFoodBank size={50} /> */}
+            </li>
+
+            <li className="nav-item">
               <Link to="/"> home</Link>
             </li>
             <li className="nav-item">
-              <Link to="/meals"> add meal</Link>
+              <Link to="/meals"> share meal</Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link to="/meals/:id">reservation</Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link to="/about">about</Link>
             </li>

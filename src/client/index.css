@@ -27,16 +27,6 @@ a {
   color: #2d3233;
 }
 
-button {
-  background-color: #3e99c0;
-  border-radius: 8px;
-  border-width: 0px;
-  font-weight: 295;
-  color: rgb(255, 255, 255);
-  padding: 5px;
-  font-size: 17px;
-}
-
 @media screen and (max-width: 1400px) {
   #root {
     padding-left: 30%;
@@ -53,37 +43,108 @@ button {
 .meals {
   padding: 10px;
   margin: 20px;
-  background-color: lightblue;
 }
 li {
   padding: 10px;
   margin: 10px;
-  background-color: blanchedalmond;
+  background-color: ghostwhite;
 }
 
 .add-meal {
   display: flex;
   flex-direction: row;
-  background-color: lightblue;
+
   width: 100%;
 }
 .mealTitle:hover {
-  background-color: lightblue;
+  background-color: rgb(230, 173, 181);
 }
 .nav-item {
   display: inline;
-  background-color: coral;
+  background-color: rgb(219, 159, 182);
 }
 .navbar {
   padding: 10px;
   margin-top: 30px;
   display: flex;
   flex-direction: row;
+  overflow: auto;
 }
 .app {
   width: max-content;
-  background-color: coral;
+  background-color: rgb(219, 159, 182);
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .reservForm {
   display: block;
+}
+.footer {
+  height: 40px;
+  padding: 10px;
+}
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 0px 10;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin-left: 10px;
+}
+
+button:hover {
+  background-color: #2ee59d;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+input[type="radio"] {
+  display: none;
+}
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+.autoComplete {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+hr {
+  border-top: 1px solid seashell;
+}
+.input-autocomplete {
+  width: 100%;
+  border-radius: 45px;
+}
+.form {
+  margin: 10px;
+}
+.searchDiv {
+  display: flex;
+  flex-direction: row;
 }

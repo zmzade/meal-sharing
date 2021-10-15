@@ -3,30 +3,34 @@ import MealsForm from "./MealsForm";
 import MealsChildren from "./MealsChildren";
 import { Link } from "react-router-dom";
 
-const Meals = (props) => {
-  const { meals } = props;
-
+const Meals = ({ meals }) => {
   return (
     <div className="add-meal">
       <div>
         <ul>
-          <h2>Food Details </h2>
+          <h2> food mania </h2>
           {meals.map((meal) => {
             return (
               <li key={meal.title}>
                 <div className="mealTitle">
-                  <Link to={`/meals/${meal.id}`}>{meal.title}</Link>
+                  <Link to={`/meals/${meal.id}`}>
+                    <h3>{meal.title}</h3>
+                  </Link>
                 </div>
                 <br />
-                <MealsChildren>Description:{meal.description}</MealsChildren>
-                <MealsChildren>Location:{meal.location}</MealsChildren>
-                <MealsChildren>Price:{meal.price}</MealsChildren>
+                <MealsChildren>Ingredients: {meal.description}</MealsChildren>
+                <MealsChildren>Where: {meal.location}</MealsChildren>
+                <MealsChildren>Price: {meal.price} Kr.</MealsChildren>
+                <br />
               </li>
             );
           })}
         </ul>
       </div>
-      <MealsForm />
+
+      <div>
+        <MealsForm />
+      </div>
     </div>
   );
 };
