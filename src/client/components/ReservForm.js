@@ -5,7 +5,9 @@ const ReservForm = (props) => {
   const [tel, setTel] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  console.log(props.mealId);
+  const [guests, setGuests] = useState(0);
+  const [createdDate, setCreatedDate] = useState("");
+
   const handleReserv = () => {
     if (!tel) {
       return alert("add phone number");
@@ -18,26 +20,46 @@ const ReservForm = (props) => {
       return alert("add email");
     }
     const reserv = {
+      number_of_guests: guests,
+      created_date: createdDate,
       meal_id: props.mealId,
-      tel: tel,
-      name: name,
-      email: email,
+      contact_phonenumber: tel,
+      contact_name: name,
+      contact_email: email,
     };
+    console.log(reserv);
 
     const response = postData("/api/reservations", reserv)
       .then((data) => {
         alert("data sent");
       })
       .catch((error) => {
-        alert(error);
+        console.log(error);
       });
   };
 
   return (
-    <div className="reservForm">
+    <div className="form">
       <form>
+        <h3>reservation form</h3>
         <div>
-          <label>Phone</label>
+          <label>Number of guests</label>
+          <input
+            type="number"
+            value={guests}
+            onChange={(e) => setGuests(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Date</label>
+          <input
+            type="date"
+            value={createdDate}
+            onChange={(e) => setCreatedDate(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Phone No.</label>
           <input
             type="tel"
             placeholder="Add phonenumber .."
@@ -65,7 +87,7 @@ const ReservForm = (props) => {
           />
         </div>
         <br />
-        <div>
+        <div className="warp">
           <button onClick={handleReserv} type="submit">
             book seat
           </button>
