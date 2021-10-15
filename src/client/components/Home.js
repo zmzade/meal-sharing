@@ -1,9 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-const Home = (props) => {
-  const { meals } = props;
-
+const Home = ({ meals }) => {
   return (
     <div className="meals">
       <h1> Meals</h1>
