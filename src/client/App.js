@@ -6,6 +6,9 @@ import Home from "./components/Home";
 import MealWithId from "./components/MealWithId";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
+import Footer from "./components/Footer";
+import ReviewForm from "./components/ReviewForm";
+import Autocomplete from "./components/Autocomplete";
 
 function App() {
   const [meals, setMeals] = useState([]);
@@ -27,13 +30,18 @@ function App() {
             <MealWithId meals={meals} />
           </Route>
           <Route exact path="/meals">
+            <Autocomplete meals={meals} />
             <Meals meals={meals} />
+          </Route>
+          <Route exact path="/reviews/:id">
+            <ReviewForm />
           </Route>
           <Route exact path="/about">
             <About />
           </Route>
           <Route exact path="/">
             <Home meals={meals} />
+            <Autocomplete meals={meals} />
           </Route>
           <Route exact path="*">
             <h3>Not Found</h3>
@@ -43,6 +51,7 @@ function App() {
             <TestComponent></TestComponent>
           </Route>
         </Switch>
+        {/* <Footer /> */}
       </div>
     </>
   );
