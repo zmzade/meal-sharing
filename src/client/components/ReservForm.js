@@ -87,7 +87,7 @@ const ReservForm = (props) => {
           />
         </div>
         <br />
-        <div className="warp">
+        <div>
           <button onClick={handleReserv} type="submit">
             book seat
           </button>
