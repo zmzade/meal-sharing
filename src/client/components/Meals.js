@@ -8,12 +8,12 @@ const Meals = ({ meals }) => {
     <div className="add-meal">
       <div>
         <ul>
-          <h2> food mania </h2>
+          <h2 style={{ paddingLeft: "10px" }}> food mania </h2>
           {meals.map((meal) => {
             return (
               <li key={meal.title}>
                 <div className="mealTitle">
-                  <Link to={`/meals/${meal.id}`}>
+                  <Link to={`/meals/${meal.id}`} className="main-links">
                     <h3>{meal.title}</h3>
                   </Link>
                 </div>
@@ -27,7 +27,6 @@ const Meals = ({ meals }) => {
           })}
         </ul>
       </div>
-
       <div>
         <MealsForm />
       </div>

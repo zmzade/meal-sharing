@@ -111,7 +111,7 @@ const MealsForm = () => {
           />
         </div>
         <br />
-        <div className="warp">
+        <div>
           <button onClick={handleAdd} type="submit">
             Submit
           </button>
