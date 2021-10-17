@@ -11,7 +11,9 @@ const Home = ({ meals }) => {
           return (
             <li key={meal.title}>
               <div className="mealTitle">
-                <Link to="/meals">{meal.title}</Link>
+                <Link to="/meals" className="main-links">
+                  {meal.title}
+                </Link>
               </div>
             </li>
           );
