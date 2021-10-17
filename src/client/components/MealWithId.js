@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const MealWithId = ({ meals }) => {
   const [availbleReserv, setAvailableReserv] = React.useState([]);
-  const [isAvailable, setIsAvailable] = React.useState(true);
+  const [showForm, setShowForm] = React.useState(false);
   const params = useParams();
 
   React.useEffect(() => {
@@ -20,74 +20,94 @@ const MealWithId = ({ meals }) => {
   const showReservForm = () => {
     const availableIdArr = availbleReserv.map((food) => food.id);
     if (availableIdArr.includes(parseInt(params.id))) {
-      console.log(isAvailable);
-      return setIsAvailable(isAvailable);
+      return setShowForm(!showForm);
     }
-    return console.log(!isAvailable);
   };
 
   const mealsWithId = meals.filter((meal) => meal.id === parseInt(params.id));
   if (mealsWithId.length === 0) {
     return (
       <div className="add-meal">
-        {/* <div>
+        <div>
           <ReservForm />
-        </div> */}
+        </div>
       </div>
     );
   }
   const meal = mealsWithId[0];
 
   return (
-    <div className="add-meal">
-      <div>
-        <div style={{ fontSize: "20px" }}>
-          <h3>{meal.title}</h3>
-        </div>
-        <br />
-        <MealsChildren>
-          Id: {params.id}
-          <br />
-          Ingredients: {meal.description}
-          <br />
-          Price: {meal.price} Kr.
-          <br />
-          Max-reservation: {meal.max_reservations}
-          <br />
-          Where: {meal.location}
-          <br />
-          when: {new Date(meal.created_date).toLocaleDateString()}
-        </MealsChildren>
+    <div>
+      <div className="add-meal">
+        <div>
+          <div
+            style={{
+              fontSize: "20px",
+              backgroundColor: "peru",
+              paddingLeft: "4px",
+              paddingRight: "4px",
+              color: "grey",
+              borderRadius: "8px",
+              height: "30px",
+              textAlign: "center",
+            }}
+          >
+            <h3 style={{ color: "whitesmoke" }}>{meal.title}</h3>
+          </div>
 
-        <br />
-        <div>
-          {" "}
-          <input type="button" onClick={showReservForm} value="reserve"></input>
-        </div>
-        <br />
-        <div>
-          <Link to={`/reviews/${meal.id}`}>
+          <br />
+          <MealsChildren>
+            <div className="text-mealId">
+              Id: {params.id}
+              <br />
+              Ingredients: {meal.description}
+              <br />
+              Price: {meal.price} Kr.
+              <br />
+              Max-reservation: {meal.max_reservations}
+              <br />
+              Where: {meal.location}
+              <br />
+              when: {new Date(meal.created_date).toLocaleDateString()}
+            </div>
+          </MealsChildren>
+
+          <br />
+          <div>
             <button
+              type="submit"
+              onClick={showReservForm}
               style={{
-                backgroundColor: "whitesmoke",
                 width: "100%",
                 marginLeft: "0px",
               }}
             >
-              leave a review for this meal
+              reserve
             </button>
-          </Link>
-        </div>
-      </div>
-
-      <div>
-        {isAvailable ? (
-          <ReservForm />
-        ) : (
-          <div>
-            <h4>Unfortunately, no available reservation</h4>
           </div>
-        )}
+          <br />
+          <div>
+            <Link to={`/reviews/${meal.id}`}>
+              <button
+                style={{
+                  width: "100%",
+                  marginLeft: "0px",
+                }}
+              >
+                leave a review
+              </button>
+            </Link>
+          </div>
+        </div>
+        <div className="reserv-form">
+          {showForm ? (
+            <ReservForm />
+          ) : (
+            <div className="show-form">
+              <h4>Unfortunately, no available reservation</h4>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
