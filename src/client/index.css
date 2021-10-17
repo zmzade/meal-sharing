@@ -1,10 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 @import "theme.css";
+
 * {
   font-family: "Montserrat", sans-serif;
+  font-weight: bold;
   box-sizing: border-box;
 }
-
+label {
+  font-size: large;
+  font-weight: bold;
+}
 #root {
   padding-left: 30%;
   padding-right: 30%;
@@ -14,6 +19,10 @@
 body {
   margin: 0;
   font-size: 17px;
+  background: url(https://upload.wikimedia.org/wikipedia/commons/d/dd/Flickr_-_cyclonebill_-_Vagtel-spejl%C3%A6g.jpg)
+    no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
 }
 
 ul {
@@ -53,36 +62,80 @@ li {
 .add-meal {
   display: flex;
   flex-direction: row;
-
   width: 100%;
+  padding: 10px;
 }
-.mealTitle:hover {
-  background-color: rgb(230, 173, 181);
+
+.navbar-active {
+  color: tomato;
 }
-.nav-item {
-  display: inline;
-  background-color: rgb(219, 159, 182);
+.main-nav:hover {
+  color: rgb(217, 233, 223) !important;
 }
+.main-nav {
+  font-family: cursive;
+  font-weight: bold;
+}
+.main-links {
+  color: rgb(64, 22, 180);
+}
+.main-links:hover {
+  color: gainsboro;
+}
+
+li:hover {
+  background-color: peru;
+}
+.logo {
+  background-color: peru;
+}
+.logo:hover {
+  background-color: peru;
+}
+
+.nav-item:hover {
+  background-color: gray;
+}
+
 .navbar {
   padding: 10px;
   margin-top: 30px;
-  display: flex;
-  flex-direction: row;
-  overflow: auto;
-}
-.app {
+  overflow: hidden;
   width: max-content;
-  background-color: rgb(219, 159, 182);
-  padding: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
 }
+
+.app {
+  padding: 5px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.sidebar {
+  width: 200px;
+}
+
 .reservForm {
   display: block;
+}
+.reserv-form {
+  padding: 10px;
+}
+.text-mealId {
+  background-color: peru;
+  line-height: 40px;
+  padding: 10px;
+  border-radius: 20px;
 }
 .footer {
   height: 40px;
   padding: 10px;
+  display: inline;
 }
 input {
   width: 100%;
@@ -98,8 +151,8 @@ button {
   width: 100px;
   height: 40px;
   font-family: "Roboto", sans-serif;
-  font-size: 11px;
-  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: bold;
   letter-spacing: 2.5px;
   font-weight: 500;
   color: #000;
@@ -114,8 +167,8 @@ button {
 }
 
 button:hover {
-  background-color: #2ee59d;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  background-color: orange;
+  box-shadow: 0px 15px 20px rgba(179, 153, 38, 0.4);
   color: #fff;
   transform: translateY(-7px);
 }
@@ -126,17 +179,15 @@ input[type="radio"] {
   cursor: pointer;
   transition: color 200ms;
 }
-.sidebar {
-  display: flex;
-  flex-direction: column;
-}
+
 .autoComplete {
-  margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 10px;
+  margin-left: 35px;
 }
-hr {
+/* hr {
   border-top: 1px solid seashell;
-}
+} */
 .input-autocomplete {
   width: 100%;
   border-radius: 45px;
@@ -147,4 +198,29 @@ hr {
 .searchDiv {
   display: flex;
   flex-direction: row;
+}
+.aboutDiv {
+  width: 100%;
+  line-height: 30px;
+  padding: 10px;
+}
+.about {
+  margin-top: 125px;
+  font-weight: bold;
+  color: darkblue;
+  background-color: whitesmoke;
+  padding: 10px;
+  border-radius: 45px;
+  margin-right: 20px;
+}
+.show-form {
+  background-color: snow;
+  margin-top: 345px;
+  line-height: 40px;
+  font-family: cursive;
+  font-size: medium;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 45px;
+  color: tomato;
 }
