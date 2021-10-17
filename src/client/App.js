@@ -24,33 +24,40 @@ function App() {
   return (
     <>
       <div className="app">
-        <Navbar />
-        <Switch>
-          <Route exact path="/meals/:id">
-            <MealWithId meals={meals} />
-          </Route>
-          <Route exact path="/meals">
-            <Autocomplete meals={meals} />
-            <Meals meals={meals} />
-          </Route>
-          <Route exact path="/reviews/:id">
-            <ReviewForm />
-          </Route>
-          <Route exact path="/about">
-            <About />
-          </Route>
-          <Route exact path="/">
-            <Home meals={meals} />
-            <Autocomplete meals={meals} />
-          </Route>
-          <Route exact path="*">
-            <h3>Not Found</h3>
-          </Route>
+        <Router />
+        <div className="sidebar">
+          <Navbar fixed="top" />
+        </div>
+        <main>
+          <div className="content">
+            <Switch>
+              <Route exact path="/meals/:id">
+                <MealWithId meals={meals} />
+              </Route>
+              <Route exact path="/meals">
+                <Autocomplete meals={meals} />
+                <Meals meals={meals} />
+              </Route>
+              <Route exact path="/reviews/:id">
+                <ReviewForm />
+              </Route>
+              <Route exact path="/about">
+                <About />
+              </Route>
+              <Route exact path="/">
+                <Autocomplete meals={meals} />
+                <Home meals={meals} />
+              </Route>
+              <Route exact path="*">
+                <h3>Not Found</h3>
+              </Route>
 
-          <Route exact path="/test-component">
-            <TestComponent></TestComponent>
-          </Route>
-        </Switch>
+              <Route exact path="/test-component">
+                <TestComponent></TestComponent>
+              </Route>
+            </Switch>
+          </div>
+        </main>
         {/* <Footer /> */}
       </div>
     </>
