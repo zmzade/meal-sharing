@@ -44,16 +44,6 @@ const Navbar = () => {
             <li className="nav-item">
               <NavLink
                 exact
-                to="/meals/:id"
-                activeClassName="navbar-active"
-                className="main-nav"
-              >
-                reservation
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                exact
                 to="/about"
                 activeClassName="navbar-active"
                 className="main-nav"

@@ -2,13 +2,24 @@ import React from "react";
 import StarRate from "./StarRate";
 import postData from "./postData";
 import { useParams } from "react-router";
+import Meals from "./Meals";
 
-const ReviewForm = () => {
+const ReviewForm = ({ meals }) => {
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [created_date, setCreated_date] = React.useState("");
   const [rating, setRating] = React.useState(0);
+  const [name, setName] = React.useState("");
   const params = useParams();
+
+  React.useEffect(() => {
+    const meal = meals.filter((meal) => meal.id === parseInt(params.id));
+    if (meal.length === 0) {
+      return;
+    }
+    const mealName = meal[0].title;
+    setName(mealName);
+  }, [meals]);
 
   const handleReview = () => {
     if (!title) {
@@ -44,9 +55,25 @@ const ReviewForm = () => {
 
   return (
     <>
+      {}
       <div className="form">
         <form>
           <h2> review form</h2>
+          <div
+            style={{
+              fontSize: "20px",
+              backgroundColor: "peru",
+              paddingLeft: "4px",
+              paddingRight: "4px",
+              color: "grey",
+              borderRadius: "8px",
+              height: "30px",
+              textAlign: "center",
+              marginBottom: "10px",
+            }}
+          >
+            <h4 style={{ color: "whitesmoke" }}>{name}</h4>
+          </div>
           <div>
             <label>Title</label>
             <input
