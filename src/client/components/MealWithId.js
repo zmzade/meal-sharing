@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const MealWithId = ({ meals }) => {
   const [availbleReserv, setAvailableReserv] = React.useState([]);
   const [showForm, setShowForm] = React.useState(false);
+  const [showDiv, setShowDiv] = React.useState(false);
   const params = useParams();
 
   React.useEffect(() => {
@@ -22,6 +23,7 @@ const MealWithId = ({ meals }) => {
     if (availableIdArr.includes(parseInt(params.id))) {
       return setShowForm(!showForm);
     }
+    return setShowDiv(!showDiv);
   };
 
   const mealsWithId = meals.filter((meal) => meal.id === parseInt(params.id));
@@ -42,7 +44,7 @@ const MealWithId = ({ meals }) => {
         <div>
           <div
             style={{
-              fontSize: "20px",
+              fontSize: "15px",
               backgroundColor: "peru",
               paddingLeft: "4px",
               paddingRight: "4px",
@@ -100,9 +102,8 @@ const MealWithId = ({ meals }) => {
           </div>
         </div>
         <div className="reserv-form">
-          {showForm ? (
-            <ReservForm />
-          ) : (
+          {showForm && <ReservForm />}
+          {showDiv && (
             <div className="show-form">
               <h4>Unfortunately, no available reservation</h4>
             </div>
