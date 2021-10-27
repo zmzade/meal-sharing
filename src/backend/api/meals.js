@@ -68,7 +68,8 @@ router.get("/", async (request, response) => {
     const allMeals = await knex("meal").select("*");
     return response.json(allMeals);
   } catch (error) {
-    throw error;
+    console.log(error);
+    return response.render("error", { error: error });
   }
 });
 //---------------------------------------------------------------
