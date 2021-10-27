@@ -69,7 +69,7 @@ router.get("/", async (request, response) => {
     return response.json(allMeals);
   } catch (error) {
     console.log(error);
-    return response.render("error", { error: error });
+    return response.status(500).send({ error: error });
   }
 });
 //---------------------------------------------------------------
