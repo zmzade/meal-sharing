@@ -31,7 +31,7 @@ const MealWithId = ({ meals }) => {
     return (
       <div className="add-meal">
         <div>
-          <ReservForm />
+          <ReservForm mealId={parseInt(params.id)} />
         </div>
       </div>
     );
@@ -102,7 +102,7 @@ const MealWithId = ({ meals }) => {
           </div>
         </div>
         <div className="reserv-form">
-          {showForm && <ReservForm />}
+          {showForm && <ReservForm mealId={parseInt(params.id)} />}
           {showDiv && (
             <div className="show-form">
               <h4>Unfortunately, no available reservation</h4>

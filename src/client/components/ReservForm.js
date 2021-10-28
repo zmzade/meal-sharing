@@ -88,9 +88,11 @@ const ReservForm = (props) => {
         </div>
         <br />
         <div>
-          <button onClick={handleReserv} type="submit">
-            book seat
-          </button>
+          <input
+            onClick={handleReserv}
+            type="button"
+            value="  book seat"
+          ></input>
         </div>
       </form>
     </div>
