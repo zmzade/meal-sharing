@@ -42,9 +42,6 @@ export default function Autocomplete({ meals }) {
               >
                 {item}
               </li>
-              {/* {index !== suggestFoods.length - 1 && (
-                <hr className="input-autocomplete" />
-              )} */}
             </div>
           );
         })}
@@ -55,21 +52,21 @@ export default function Autocomplete({ meals }) {
   return (
     <div className="autoComplete">
       <div className="searchDiv">
-        <div>
-          <input
-            className="input-autocomplete"
-            type="searchItem"
-            placeholder="search food..."
-            value={searchItem}
-            onChange={handleChange}
-          />
-        </div>
+        <input
+          className="input-autocomplete"
+          type="searchItem"
+          placeholder="search food..."
+          value={searchItem}
+          onChange={handleChange}
+        />
         {getsuggestedFoods()}
-        <div className="warp">
-          <button type="submit" onClick={() => handleSearch(searchItem)}>
-            Search
-          </button>
-        </div>
+        <button
+          className="searchBtn"
+          type="submit"
+          onClick={() => handleSearch(searchItem)}
+        >
+          Search
+        </button>
       </div>
     </div>
   );
