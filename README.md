@@ -2,8 +2,6 @@
 <p align="center"> Website for sharing meals together. Invite your best friends or your family for dinner!
     <br> 
 </p>
-
-
 ### Installing
 
 To install run `npm install`
