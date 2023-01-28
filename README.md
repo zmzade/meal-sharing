@@ -4,6 +4,9 @@
 </p>
 
 <h3 align="center">Meal sharing api</h3>
+<p align="center"> Website for sharing meals together. Invite your best friends or your family for dinner!
+    <br> 
+</p>
 
 <div align="center">
 
